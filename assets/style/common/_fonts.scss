@@ -1,0 +1,101 @@
+@font-face {
+  font-family: 'iconfont';
+  /* project id 305994 */
+  src: url('//at.alicdn.com/t/font_305994_ncaoh2hhycq.eot');
+  src: url('//at.alicdn.com/t/font_305994_ncaoh2hhycq.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_305994_ncaoh2hhycq.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_305994_ncaoh2hhycq.woff') format('woff'),
+    url('//at.alicdn.com/t/font_305994_ncaoh2hhycq.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_305994_ncaoh2hhycq.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: iconfont !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin cx-font-light {
+  font-family: "Aktiv Grotesk W01 Light1370681", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin cx-font-regular {
+  font-family: "PingFangSC-Regular", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Keep all font sizes here
+
+@mixin heading-biggest-font-size {
+  font-size: 2.5em; //40px
+}
+
+@mixin heading-bigger-font-size {
+  font-size: 2.25em; //36px
+}
+
+@mixin heading-big-font-size {
+  font-size: 2em; //32px
+}
+
+@mixin heading-normal-big-font-size {
+  font-size: 1.875em; //30px
+}
+
+@mixin heading-medium-font-size {
+  font-size: 1.75em; //28px
+}
+
+@mixin heading-standard-font-size {
+  font-size: 1.5em; //24px
+}
+
+@mixin heading-small-font-size {
+  font-size: 1.375em; //22px
+}
+
+@mixin larger-font-size {
+  font-size: 1.25em; //20px
+}
+
+@mixin large-font-size {
+  font-size: 1.125em; //18px
+}
+
+@mixin base-font-size {
+  font-size: 1em; //16px
+}
+
+@mixin heading-font-size {
+  font-size: 0.9375em; //15px
+}
+
+@mixin small-font-size {
+  font-size: 0.875em; //14px
+}
+
+@mixin smaller-font-size {
+  font-size: 0.8125em; //13px
+}
+
+@mixin smallest-font-size {
+  font-size: 0.75em; //12px
+}
+
+@mixin tiny-font-size {
+  font-size: 0.6875em; //11px
+}
+
+@mixin extra-small-font-size {
+  font-size: 0.625em; //10px
+}
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}

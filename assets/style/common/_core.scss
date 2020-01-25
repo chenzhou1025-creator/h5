@@ -1,0 +1,57 @@
+body {
+  margin: 0 auto;
+  font-style: normal;
+  width: 100%;
+  height: 100%;
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+
+}
+
+.flex_v_sp_b {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex_v_sp_a {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flex_a {
+  display: flex;
+  align-items: center;
+}
+
+
+.space_l_r_20 {
+  padding: 0 20px;
+}
+
+.space_l_r_10 {
+  padding: 0 10px;
+}
+
+$base-font-size: 16px !default;
+
+@function pxToem($target-size, $context: $base-font-size) {
+  @if not unitless($target-size) {
+    $target-size: strip-units($target-size);
+  }
+
+  @if not unitless($context) {
+    $context: strip-units($context);
+  }
+
+  @return ($target-size / $context) * 1em;
+}

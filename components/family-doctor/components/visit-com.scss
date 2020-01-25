@@ -1,0 +1,80 @@
+.visit-com-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: pxToem(13) pxToem(16) pxToem(16) pxToem(15);
+}
+.doctor-headImg {
+    width: pxToem(48);
+    position: relative;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    &:after {
+      display: block;
+      content: '';
+      width: 7px;
+      height: 7px;
+      background-color: #DCDFE7;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      bottom: 0;
+      transform: translateY(50%);
+      border-radius: 50%;
+    }
+
+    &.online:after {
+      background-color: #B8E986;
+    }
+  }
+
+  ul {
+    flex: 1;
+    padding-left: pxToem(10);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    li {
+      display: flex;
+      align-items: center;
+      line-height: 1.5;
+      width: 100%;
+
+      &:first-of-type {
+        justify-content: flex-start;
+        margin-bottom: pxToem(6);
+
+        span {
+          font-size: pxToem(12);
+          color: #333;
+          margin-right: pxToem(8);
+
+          &:first-of-type {
+            font-size: pxToem(14);
+          }
+        }
+      }
+
+      &:nth-of-type(2) {
+        // margin-bottom: pxToem(5);
+        span {
+          font-size: pxToem(12);
+          color: #333333;
+        }
+      }
+    }
+  }
+  .arrow{
+    img{
+      width: pxToem(16);
+      height: pxToem(16);
+    }
+  }

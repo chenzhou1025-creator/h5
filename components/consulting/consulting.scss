@@ -1,0 +1,29 @@
+.row1 {
+    line-height: pxToem(25);
+    text-align: center;
+    padding-top: pxToem(70);
+    padding-bottom: pxToem(20);
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.row2 {
+    width: 80%;
+    height: pxToem(330);
+    margin: 0 auto;
+}
+
+.row2 img {
+    width: 100%;
+    height: 100%;
+}
+
+.row3 {
+    font-size: pxToem(14);
+    line-height: pxToem(25);
+    text-align: center;
+    padding-top: pxToem(20);
+    padding-left: 40px;
+    padding-right: 40px;
+    color: #666;
+}

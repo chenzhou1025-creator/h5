@@ -1,0 +1,68 @@
+$primary: #006564;
+$cx-red: #c2262e;
+$cx-blue: #4e86a1;
+$cx-error: #d11f00;
+$cx-description: #fa5f7e;
+$white: #ffffff;
+$grey-block: #dbdbdb;
+$grey-box:#e8eaec;
+$grey-dark: #4c4c4c;
+$grey-boder: #e5e5e5;
+$grey-light: #dadada;
+$grey-e: #eeeeee;
+$grey-a:#aaa;
+$grey-f2: #f2f2f2;
+$grey-eb:#ebf6ff;
+$grey-3: #333;
+$grey-9: #999999;
+$grey-c: #ccc;
+$grey-d8: #d8d8d8;
+$screen-xs: 20em; //320px;
+$screen-sm: 37.5em; //600px;
+$screen-md: 63em; //1008px;
+$screen-lg: 80em; //1280px;
+$link-color: #c0c0c0; // #337ab7;
+
+$page-border:#2d8cf0;
+$tab-color: #298dfb;
+$li-hover:#d9eeff;
+$grey-e1: #e1e1e1;
+$grey-e5: #e5e5e5;
+$grey-b2: #b2b2b2;
+$blue-light: #298dfb;
+$red-fa:#FA5F7E;
+$red-f4:#F4333C;
+$border-b7:#B7C5D5;
+$border-dc:#dcdee2;
+$border-eb:#ebf0f3;
+$border-ec:#ECF5FB;
+$grey-f8:#f8f8f8;
+
+$blue-0b:#0b65a8;
+$black:#000;
+$grey-f5:#F5F9FC;
+$blue-41:#4199d7;
+$grey-90:#9094B1;
+$grey-b4: #b4b4b4;
+$grey-e2:#E2E6EB;
+$grey-e5: #F8FAFD;
+$grey-da:#DADBDB;
+$blue-2c:#2C7EDC;
+$border-cf:#CFCFCF;
+$btn-50: #50C14E;
+$btn-5d:#5dcc5b;
+$blue-eb:#EBF7FF;
+$bg-f5:#f5f7f9;
+$bg-f3:#F3F4F5;
+$blue-99: #99C9E9;
+$grey-eb:#EBF7FF;
+$btn-7f:#7F8BAF;
+$btn-2c:#2C81DC;
+$btn-8d:#8d9bc5;
+$font-9a:#9ACAEA;
+$bg-f4:#f4f9fd;
+
+@mixin btn-final-payment-bg-over {
+  background: #cc4349;
+  background: linear-gradient(0deg, #cc4349 0, #a81f23 100%);
+}
