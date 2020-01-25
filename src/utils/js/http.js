@@ -36,7 +36,7 @@ function apiAxios(method, datas) {
         axios(config)
             .then(res => { // then 请求成功之后进行什么操作
                 Toast.clear();
-                if (res.data.code === 0 || res.data.operationState === 'SUCCESS') {
+                if (res.data.code === 200 || res.data.operationState === 'SUCCESS') {
                     if (datas.successAlertMsg) {
                         Toast.success(datas.successAlertMsg || '更新成功')
                     }

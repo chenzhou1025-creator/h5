@@ -18,7 +18,7 @@
                 </div>
                 <div class="gender">
                     <div :class="{active: gender == 1}" @click="changeGender(1)">男</div>
-                    <div :class="{active: gender == 0}" @click="changeGender(0)">女</div>
+                    <div :class="{active: gender == 2}" @click="changeGender(2)">女</div>
                 </div>
             </div>
             <div class="user-info name">
@@ -51,12 +51,13 @@ import { GetAgeAndValid } from '../../utils/js/util.js'
 
 import { userInputHost } from '../../utils/js/env' // 接口地址
 import { userinputUrl } from '../../utils/api/userInput'
+
+var CryptoJS = require("crypto-js");
+
 export default {
     name: 'defaultTheme',
     data: function(){
         return {
-            chId: '',
-            channelId:'1',
             qrcode:'',
 
             gender: null,
@@ -64,16 +65,10 @@ export default {
             age:'',
             phone:'',
             resPhoneNum: /^0?(1[3456789])[0-9]{9}$/,//手机号校验
-            currentPrice: '',
-            goodsId:'',
             idCardNumber:''
         }
     },
     created() {
-        this.chId = this.$router.history.current.query.chId
-        this.channelId = this.$router.history.current.query.channelId
-        this.chId = decodeURIComponent(this.chId)
-        this.postUserInfo()
     },
     mounted(){
         document.body.addEventListener('focusout', this.listenFocusOut,false);
@@ -82,16 +77,6 @@ export default {
         // 监听ios键盘收起
         listenFocusOut(){
             window.scroll(0,0);
-        },
-        async postUserInfo(){ //保存用户信息
-            let parm = {
-                url:userinputUrl,
-                hostUrl: userInputHost,
-                data:{
-                    type:0 //零时二维码
-                }
-            }
-           let list = await this.$Http.Post(parm)
         },
         async serviceBtn(){
             // 校验
@@ -109,18 +94,53 @@ export default {
             if(!idCardNumber){
                 return this.$toast.fail('请输入正确的身份证号')
             }
+            let birthday='';
+            if(this.idCardNumber.length==15){
+                birthday = this.idCardNumber.slice(6,12)
+                birthday = '19'+birthday
+            }
+            if(this.idCardNumber.length==18){
+                birthday = this.idCardNumber.slice(6,14)
+            }
+
+            const data  = {
+                name: this.name,
+                sex: this.gender,
+                idCardNo: this.idCardNumber,
+                age:this.age,
+                birthday: birthday,
+                phone: this.phone,
+                serviceNumber: this.phone,
+                cardType:5,
+                source:'YJKAPP',
+                orderNum: this.idCardNumber
+            }
             // 请求接口
-
-            // await  todo something.....
-
-            // 跳转
-            this.$router.push({
-                path: '/familyDoctor/myDoctor',
-                query: {
-                    orderNum: this.phone,
-                    cardNo: this.idCardNumber
+            let parm = {
+                url:userinputUrl,
+                hostUrl: userInputHost,
+                data:{
+                    data: JSON.stringify(data)
                 }
-            })
+            }
+
+            // var keyHex = '72b367cada394d6c8b4bb1d304af8ae5';
+            // var encrypted = CryptoJS.DES.encrypt(JSON.stringify(data), keyHex);
+            // parm.data.data = btoa(encrypted)
+
+            let res = await this.$Http.Post(parm)
+            res = JSON.parse(res.data.msg)
+            console.log(res)
+            if(res.code===0){
+                // 跳转
+                this.$router.push({
+                    path: '/familyDoctor/myDoctor',
+                    query: {
+                        cardNo: this.phone,
+                        orderNum: this.idCardNumber
+                    }
+                })
+            }
         },
         // 切换性别
         changeGender(sign){
